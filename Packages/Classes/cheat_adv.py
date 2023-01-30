@@ -61,9 +61,9 @@ class Cheat():
     def __repr__(self):
         return f'This is a cheat code define for {self.user_avatar} user'
 
-    def cheat_code(self, play_ground: list, cross_player: str, life_counter: int) -> None: # noqa E501
+    def cheat_code_comeonman(self, play_ground: list, cross_player: str, life_counter: int) -> None: # noqa E501
 
-        """some cheat code defined in the game, this function handle them
+        """some cheat code defined in the game, this function handle comeonman
 
         Parameters
         ----------
@@ -95,7 +95,25 @@ class Cheat():
             print(colored(win_message.renderText('YOU WIN'), 'blue'))
             quit()
 
-        elif cross_player == "bombd":
+    def cheat_code_bombd(self, play_ground: list, cross_player: str, life_counter: int) -> None: # noqa E501
+
+        """some cheat code defined in the game, this function handle comeonman
+
+        Parameters
+        ----------
+        play_ground : list : the ground of play
+
+        cross_player : str : the button which user press (left, right,...)
+
+        life_counter : int : the situation of player life
+
+        Returns
+        -------
+            None
+
+        """
+        ground = Ground(self.user_avatar)
+        if cross_player == "bombd":
             logger.info(f'player press [{cross_player}] cheatcode') # noqa E501
             x_player, y_player = find_player.find_player(self.user_avatar, play_ground, self.level_number) # noqa E501
             if x_player < self.level_number - 2:
@@ -113,7 +131,25 @@ class Cheat():
                 print("you can't bombing")
                 ground.print_ground(play_ground, life_counter)
 
-        elif cross_player == "bombu":
+    def cheat_code_bombu(self, play_ground: list, cross_player: str, life_counter: int) -> None: # noqa E501
+
+        """some cheat code defined in the game, this function handle comeonman
+
+        Parameters
+        ----------
+        play_ground : list : the ground of play
+
+        cross_player : str : the button which user press (left, right,...)
+
+        life_counter : int : the situation of player life
+
+        Returns
+        -------
+            None
+
+        """
+        ground = Ground(self.user_avatar)
+        if cross_player == "bombu":
             logger.info(f'player press [{cross_player}] cheatcode') # noqa E501
             x_player, y_player = find_player.find_player(self.user_avatar, play_ground, self.level_number) # noqa E501
             if x_player > 1:
@@ -131,7 +167,25 @@ class Cheat():
                 print("you can't bombing")
                 ground.print_ground(play_ground, life_counter)
 
-        elif cross_player == "fire":
+    def cheat_code_fire(self, play_ground: list, cross_player: str, life_counter: int) -> None: # noqa E501
+
+        """some cheat code defined in the game, this function handle comeonman
+
+        Parameters
+        ----------
+        play_ground : list : the ground of play
+
+        cross_player : str : the button which user press (left, right,...)
+
+        life_counter : int : the situation of player life
+
+        Returns
+        -------
+            None
+
+        """
+        ground = Ground(self.user_avatar)
+        if cross_player == "fire":
             logger.info(f'player press [{cross_player}] cheatcode') # noqa E501
             x_bomb, y_bomb = find_player.find_player(sign_of_game.BOMB_SIGN.value, play_ground, self.level_number) # noqa E501
             if (x_bomb is not None) and (y_bomb is not None):

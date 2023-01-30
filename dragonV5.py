@@ -164,5 +164,8 @@ while True:
     # handling situation of winning and losing
     Win_Lose.win(play_ground, life_counter, user_avatar, level_number)
     # handling cheatCode
-    cheat_code.cheat_code(play_ground, cross_player, life_counter)
+    cheat_code.cheat_code_comeonman(play_ground, cross_player, life_counter)
+    cheat_code.cheat_code_bombu(play_ground, cross_player, life_counter)
+    cheat_code.cheat_code_bombd(play_ground, cross_player, life_counter)
+    cheat_code.cheat_code_fire(play_ground, cross_player, life_counter)
     # print(attack_probability)
