@@ -60,7 +60,7 @@ class Player(Character):
         self.user_avatar = user_avatar
         self.level_number = level_number
 
-    def move_left(self, play_ground: list, cross_player: str, life_counter: int) -> list: # noqa E501
+    def move_left(self, play_ground: list, cross_player: str, life_counter: int, ground: Ground) -> list: # noqa E501
         """
         this function define ability of player and how player move left
 
@@ -83,7 +83,6 @@ class Player(Character):
             x_position: int = row
             y_position: int = col - 1
             logger.info(f'{self.user_name} press {cross_player} and now its location is {x_position},{y_position}') # noqa E501
-            ground = Ground(self.user_avatar)
             if y_position < 0 or (x_position == x_dragon and y_position == y_dragon): # noqa E501
                 ground.print_ground(play_ground, life_counter)
             else:
@@ -93,7 +92,7 @@ class Player(Character):
         return play_ground
 
 
-    def move_right(self, play_ground: list, cross_player: str, life_counter: int) -> list: # noqa E501
+    def move_right(self, play_ground: list, cross_player: str, life_counter: int,  ground: Ground) -> list: # noqa E501
         """
         this function define ability of player and how player move right
 
@@ -116,7 +115,6 @@ class Player(Character):
             x_position: int = row
             y_position: int = col + 1
             logger.info(f'{self.user_name} press {cross_player} and now its location is {x_position},{y_position}') # noqa E501
-            ground = Ground(self.user_avatar)
             if y_position > self.level_number-1 or (x_position == x_dragon and y_position == y_dragon ): # noqa E501
                 ground.print_ground(play_ground, life_counter)
             else:
@@ -126,7 +124,7 @@ class Player(Character):
         return play_ground
 
 
-    def move_down(self, play_ground: list, cross_player: str, life_counter: int) -> list: # noqa E501
+    def move_down(self, play_ground: list, cross_player: str, life_counter: int,  ground: Ground) -> list: # noqa E501
         """
         this function define ability of player and how player down
 
@@ -149,7 +147,6 @@ class Player(Character):
             x_position: int = row + 1
             y_position: int = col
             logger.info(f'{self.user_name} press {cross_player} and now its location is {x_position},{y_position}') # noqa E501
-            ground = Ground(self.user_avatar)
             if x_position > self.level_number-1 or (x_position == x_dragon and y_position == y_dragon ): # noqa E501
                 ground.print_ground(play_ground, life_counter)
             else:
@@ -159,7 +156,7 @@ class Player(Character):
         return play_ground
 
 
-    def move_up(self, play_ground: list, cross_player: str, life_counter: int) -> list: # noqa E501
+    def move_up(self, play_ground: list, cross_player: str, life_counter: int,  ground: Ground) -> list: # noqa E501
         """
         this function define ability of player and how player move up
 
@@ -182,7 +179,6 @@ class Player(Character):
             x_position: int = row - 1
             y_position: int = col
             logger.info(f'{self.user_name} press {cross_player} and now its location is {x_position},{y_position}') # noqa E501
-            ground = Ground(self.user_avatar)
             if x_position < 0 or ( y_position == y_dragon and x_position == x_dragon): # noqa E501
                 ground.print_ground(play_ground, life_counter)
             else:
@@ -192,7 +188,7 @@ class Player(Character):
         return play_ground
 
 
-    def move_check(self, play_ground: list, cross_player: str, life_counter: int) -> None: # noqa E501
+    def move_check(self, play_ground: list, cross_player: str, life_counter: int,  ground: Ground) -> None: # noqa E501
         """
         this function define check input of user and authenticate it
 
@@ -212,11 +208,11 @@ class Player(Character):
         if cross_player not in ['left', 'right', 'up', 'down', 'help', 'adv', 'bombu', 'fire', 'bombd','']: # noqa E501
             print('please enter correct sign')
             type_check.type_check(cross_player)
-            ground = Ground(self.user_avatar)
+            # ground = Ground(self.user_avatar)
             ground.print_ground(play_ground, life_counter)
 
 
-    def move_help(self, play_ground: list, cross_player: str, life_counter: int) -> None: # noqa E501
+    def move_help(self, play_ground: list, cross_player: str, life_counter: int, ground: Ground) -> None: # noqa E501
         """
         this, help player to find dungeon
 
@@ -247,5 +243,4 @@ class Player(Character):
             print(f'You can find dungeon {  abs(x_dungeon - x_player)} home upper or downer from player') # noqa E501
             print(f'You can find dungeon { abs(y_dungeon - y_player)} home lefter or righter from player') # noqa E501
             print("========================================================================================") # noqa E501
-            ground = Ground(self.user_avatar)
             ground.print_ground(play_ground, life_counter)

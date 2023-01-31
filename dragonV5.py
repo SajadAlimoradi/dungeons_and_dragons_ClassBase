@@ -59,7 +59,7 @@ for example: login/register/level/establishing roles of game, etc
 '''
 
 # Banner is running then user's register or login will be run
-Banner.banner()
+# Banner.banner()
 while True:
     clear_screen()
     start_message = Figlet(font='standard', width=110)
@@ -152,20 +152,21 @@ while True:
     if cross_player == "adv":
         life_counter: int = adv_code.advertising(play_ground, cross_player, life_counter) # noqa E501
     # handling player move
-    play_ground = user.move_left(play_ground, cross_player, life_counter)
-    play_ground = user.move_right(play_ground, cross_player, life_counter)
-    play_ground = user.move_up(play_ground, cross_player, life_counter)
-    play_ground = user.move_down(play_ground, cross_player, life_counter)
-    user.move_check(play_ground, cross_player, life_counter)
-    user.move_help(play_ground, cross_player, life_counter)
+    play_ground = user.move_left(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
+    play_ground = user.move_right(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
+    play_ground = user.move_up(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
+    play_ground = user.move_down(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
+    user.move_check(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
+    user.move_help(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
     # handling Dragon move
     dragon.smelling_power(play_ground, attack_probability, life_counter)
     life_counter: int = dragon.hearing_power(play_ground, attack_probability, life_counter) # noqa E501
     # handling situation of winning and losing
     Win_Lose.win(play_ground, life_counter, user_avatar, level_number)
     # handling cheatCode
-    cheat_code.cheat_code_comeonman(play_ground, cross_player, life_counter)
-    cheat_code.cheat_code_bombu(play_ground, cross_player, life_counter)
-    cheat_code.cheat_code_bombd(play_ground, cross_player, life_counter)
-    cheat_code.cheat_code_fire(play_ground, cross_player, life_counter)
+
+    cheat_code.cheat_code_comeonman(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
+    cheat_code.cheat_code_bombu(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
+    cheat_code.cheat_code_bombd(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
+    cheat_code.cheat_code_fire(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
     # print(attack_probability)

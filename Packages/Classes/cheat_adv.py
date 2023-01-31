@@ -61,7 +61,7 @@ class Cheat():
     def __repr__(self):
         return f'This is a cheat code define for {self.user_avatar} user'
 
-    def cheat_code_comeonman(self, play_ground: list, cross_player: str, life_counter: int) -> None: # noqa E501
+    def cheat_code_comeonman(self, play_ground: list, cross_player: str, life_counter: int, ground: Ground) -> None: # noqa E501
 
         """some cheat code defined in the game, this function handle comeonman
 
@@ -78,7 +78,6 @@ class Cheat():
             None
 
         """
-        ground = Ground(self.user_avatar)
         if cross_player == "comeonman":
             logger.info(f'player press [{cross_player}] cheatcode and win ')
             logger.info('player win')
@@ -95,7 +94,7 @@ class Cheat():
             print(colored(win_message.renderText('YOU WIN'), 'blue'))
             quit()
 
-    def cheat_code_bombd(self, play_ground: list, cross_player: str, life_counter: int) -> None: # noqa E501
+    def cheat_code_bombd(self, play_ground: list, cross_player: str, life_counter: int,  ground: Ground) -> None: # noqa E501
 
         """some cheat code defined in the game, this function handle comeonman
 
@@ -112,7 +111,6 @@ class Cheat():
             None
 
         """
-        ground = Ground(self.user_avatar)
         if cross_player == "bombd":
             logger.info(f'player press [{cross_player}] cheatcode') # noqa E501
             x_player, y_player = find_player.find_player(self.user_avatar, play_ground, self.level_number) # noqa E501
@@ -131,7 +129,7 @@ class Cheat():
                 print("you can't bombing")
                 ground.print_ground(play_ground, life_counter)
 
-    def cheat_code_bombu(self, play_ground: list, cross_player: str, life_counter: int) -> None: # noqa E501
+    def cheat_code_bombu(self, play_ground: list, cross_player: str, life_counter: int,  ground: Ground) -> None: # noqa E501
 
         """some cheat code defined in the game, this function handle comeonman
 
@@ -148,7 +146,7 @@ class Cheat():
             None
 
         """
-        ground = Ground(self.user_avatar)
+        # ground = Ground(self.user_avatar)
         if cross_player == "bombu":
             logger.info(f'player press [{cross_player}] cheatcode') # noqa E501
             x_player, y_player = find_player.find_player(self.user_avatar, play_ground, self.level_number) # noqa E501
@@ -167,7 +165,7 @@ class Cheat():
                 print("you can't bombing")
                 ground.print_ground(play_ground, life_counter)
 
-    def cheat_code_fire(self, play_ground: list, cross_player: str, life_counter: int) -> None: # noqa E501
+    def cheat_code_fire(self, play_ground: list, cross_player: str, life_counter: int,  ground: Ground) -> None: # noqa E501
 
         """some cheat code defined in the game, this function handle comeonman
 
@@ -184,7 +182,6 @@ class Cheat():
             None
 
         """
-        ground = Ground(self.user_avatar)
         if cross_player == "fire":
             logger.info(f'player press [{cross_player}] cheatcode') # noqa E501
             x_bomb, y_bomb = find_player.find_player(sign_of_game.BOMB_SIGN.value, play_ground, self.level_number) # noqa E501
@@ -224,7 +221,7 @@ class Adv():
     def __repr__(self):
         return f'This is a Adv code define for {self.user_avatar} user'
 
-    def advertising(self, play_ground: list, cross_player: str, life_counter: int) -> int: # noqa E501
+    def advertising(self, play_ground: list, cross_player: str, life_counter: int,  ground: Ground) -> int: # noqa E501
         """this function run the advertisement and change situation
         of player's life
 
@@ -247,7 +244,6 @@ class Adv():
             adv.show()
             playsound(sound_and_imgs_of_game.sound_adv_1.value)
             new_life_counter = life_counter + 1
-            ground = Ground(self.user_avatar)
             ground.print_ground(play_ground, new_life_counter)
             logger.info(f'Now life sitution is {new_life_counter}')
             return new_life_counter
