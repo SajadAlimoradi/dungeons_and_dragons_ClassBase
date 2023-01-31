@@ -1,10 +1,10 @@
 import logging
-from Packages.Functions import (
+from packages.functions import (
     find_player,
     type_check
 )
 
-from Packages.Classes.ground import Ground
+from packages.classes.ground import Ground
 
 DRAGON_SIGN: str = '\U0001F432'
 DUNGEON_SIGN: str = '\U0001F49A'

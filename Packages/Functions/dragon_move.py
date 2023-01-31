@@ -1,4 +1,4 @@
-from Packages.Functions import find_player
+from packages.functions import find_player
 
 DRAGON_SIGN: str = '\U0001F432'
 

@@ -4,21 +4,21 @@ import logging
 from enum import Enum
 from pyfiglet import Figlet
 from termcolor import colored
-from Packages.Functions import (
-    Banner,
+from packages.functions import (
+    banner,
     user_player_sign
 )
 
 # from Packages.Classes.define_player_position import PlayerPosition
-from Packages.Classes.player_move import Character
-from Packages.Classes.player_move import Player
-from Packages.Classes.dragon_power import Dragon
-from Packages.Classes.win_loss import Win_Lose
-from Packages.Classes.cheat_adv import Cheat
-from Packages.Classes.cheat_adv import Adv
-from Packages.Classes.Register import Register
-from Packages.Classes.Login import Login
-from Packages.Classes.ground import Ground
+from packages.classes.player_move import Character
+from packages.classes.player_move import Player
+from packages.classes.dragon_power import Dragon
+from packages.classes.win_loss import Win_Lose
+from packages.classes.cheat_adv import Cheat
+from packages.classes.cheat_adv import Adv
+from packages.classes.register import Register
+from packages.classes.login import Login
+from packages.classes.ground import Ground
 
 
 # number of player's life
@@ -59,7 +59,7 @@ for example: login/register/level/establishing roles of game, etc
 '''
 
 # Banner is running then user's register or login will be run
-# Banner.banner()
+banner.banner()
 while True:
     clear_screen()
     start_message = Figlet(font='standard', width=110)
@@ -150,7 +150,7 @@ while True:
     clear_screen()
     # handling adv
     if cross_player == "adv":
-        life_counter: int = adv_code.advertising(play_ground, cross_player, life_counter) # noqa E501
+        life_counter: int = adv_code.advertising(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
     # handling player move
     play_ground = user.move_left(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
     play_ground = user.move_right(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
@@ -164,7 +164,6 @@ while True:
     # handling situation of winning and losing
     Win_Lose.win(play_ground, life_counter, user_avatar, level_number)
     # handling cheatCode
-
     cheat_code.cheat_code_comeonman(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
     cheat_code.cheat_code_bombu(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
     cheat_code.cheat_code_bombd(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501

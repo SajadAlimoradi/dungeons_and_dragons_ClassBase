@@ -1,9 +1,9 @@
-from Packages.Functions import (
+from packages.functions import (
     find_player,
     dragon_move,
 )
 import logging
-from Packages.Classes.win_loss import Win_Lose
+from packages.classes.win_loss import Win_Lose
 DRAGON_SIGN: str = '\U0001F432'
 
 logger = logging.getLogger(__name__)

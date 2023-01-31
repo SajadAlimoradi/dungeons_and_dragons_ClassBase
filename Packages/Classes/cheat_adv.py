@@ -6,8 +6,8 @@ from termcolor import colored
 from pyfiglet import Figlet
 from enum import Enum
 from PIL import Image
-from Packages.Functions import find_player
-from Packages.Classes.ground import Ground
+from packages.functions import find_player
+from packages.classes.ground import Ground
 
 
 class sign_of_game (Enum):

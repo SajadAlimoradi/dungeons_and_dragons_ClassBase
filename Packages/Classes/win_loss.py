@@ -3,11 +3,11 @@ import logging
 from termcolor import colored
 from playsound import playsound
 from pyfiglet import Figlet
-from Packages.Functions import (
+from packages.functions import (
     find_player
 )
 
-from Packages.Classes.ground import Ground
+from packages.classes.ground import Ground
 
 LOSING_SIGN: str = '\U0001F4A8'
 DUNGEON_SIGN: str = '\U0001F49A'
