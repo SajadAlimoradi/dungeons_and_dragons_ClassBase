@@ -50,7 +50,7 @@ class Login():
         """
         clear_screen()
         while True:
-            with open('helper/user_data.csv', 'r', newline='') as csv_file:
+            with open('painless/helper/user_data.csv', 'r', newline='') as csv_file:
                 csv_reader = csv.reader(csv_file, delimiter=',')
                 user_name = self.user_name
                 user_password = self.user_password

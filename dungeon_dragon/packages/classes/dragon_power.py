@@ -1,13 +1,13 @@
-from packages.functions import (
+from dungeon_dragon.packages.functions import (
     find_player,
     dragon_move,
 )
 import logging
-from packages.classes.win_loss import Win_Lose
+from dungeon_dragon.packages.classes.win_loss import Win_Lose
 DRAGON_SIGN: str = '\U0001F432'
 
 logger = logging.getLogger(__name__)
-file_h = logging.FileHandler('helper/dragon_power.log')
+file_h = logging.FileHandler('painless/helper/dragon_power.log')
 file_f = logging.Formatter('%(asctime)s - %(filename)s - %(message)s')
 file_h.setFormatter(file_f)
 file_h.setLevel(logging.INFO)

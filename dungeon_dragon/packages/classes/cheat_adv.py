@@ -6,8 +6,8 @@ from termcolor import colored
 from pyfiglet import Figlet
 from enum import Enum
 from PIL import Image
-from packages.functions import find_player
-from packages.classes.ground import Ground
+from dungeon_dragon.packages.functions import find_player
+from dungeon_dragon.packages.classes.ground import Ground
 
 
 class sign_of_game (Enum):
@@ -20,15 +20,15 @@ class sign_of_game (Enum):
 
 class sound_and_imgs_of_game(Enum):
     """path of voice are played, saved here."""
-    comeonman: str = "D:\\Django\\Project_01\\D_and_D_V5\\Sounds\\comeonman.mp3" # noqa E501
-    cheat_code_1: str = "D:\\Django\\Project_01\\D_and_D_V5\\Sounds\\cheat_code_1.mp3" # noqa E501
-    sound_adv_1: str = "D:\\Django\\Project_01\\D_and_D_V5\\Sounds\\adv1.mp3"
-    img_adv_1: str = "D:\\Django\\Project_01\\D_and_D_V5\\imgs\\adv1.jpg"
+    comeonman: str = "D:\\Django\\Project_01\\D_and_D_V5\\dungeon_dragon\\Sounds\\comeonman.mp3" # noqa E501
+    cheat_code_1: str = "D:\\Django\\Project_01\\D_and_D_V5\\dungeon_dragon\\Sounds\\cheat_code_1.mp3" # noqa E501
+    sound_adv_1: str = "D:\\Django\\Project_01\\D_and_D_V5\\dungeon_dragon\\Sounds\\adv1.mp3" # noqa E501
+    img_adv_1: str = "D:\\Django\\Project_01\\D_and_D_V5\\dungeon_dragon\\imgs\\adv1.jpg" # noqa E501
 
 
 # logger is defined here
 logger = logging.getLogger(__name__)
-file_h = logging.FileHandler('helper/cheat_adv.log')
+file_h = logging.FileHandler('painless/helper/cheat_adv.log')
 file_f = logging.Formatter('%(asctime)s - %(filename)s - %(message)s')
 file_h.setFormatter(file_f)
 file_h.setLevel(logging.INFO)

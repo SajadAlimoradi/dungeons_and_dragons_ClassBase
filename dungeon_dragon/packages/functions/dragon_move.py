@@ -1,4 +1,4 @@
-from packages.functions import find_player
+from dungeon_dragon.packages.functions import find_player
 
 DRAGON_SIGN: str = '\U0001F432'
 

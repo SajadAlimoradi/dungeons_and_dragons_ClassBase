@@ -55,6 +55,6 @@ def banner() -> None:
     # Blocking call interrupted by loop.stop()
     loop.run_forever()
     # playsound("../Sounds/winning.mp3")
-    playsound("D:\\Django\\Project_01\\D_and_D_V5\\Sounds\\winning.mp3")
+    playsound("D:\\Django\\Project_01\\D_and_D_V5\\dungeon_dragon\\Sounds\\winning.mp3")
     loop.close()
     screen.close()

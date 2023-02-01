@@ -4,21 +4,21 @@ import logging
 from enum import Enum
 from pyfiglet import Figlet
 from termcolor import colored
-from packages.functions import (
+from dungeon_dragon.packages.functions import (
     banner,
     user_player_sign
 )
 
 # from Packages.Classes.define_player_position import PlayerPosition
-from packages.classes.player_move import Character
-from packages.classes.player_move import Player
-from packages.classes.dragon_power import Dragon
-from packages.classes.win_loss import Win_Lose
-from packages.classes.cheat_adv import Cheat
-from packages.classes.cheat_adv import Adv
-from packages.classes.register import Register
-from packages.classes.login import Login
-from packages.classes.ground import Ground
+from dungeon_dragon.packages.classes.player_move import Character
+from dungeon_dragon.packages.classes.player_move import Player
+from dungeon_dragon.packages.classes.dragon_power import Dragon
+from dungeon_dragon.packages.classes.win_loss import Win_Lose
+from dungeon_dragon.packages.classes.cheat_adv import Cheat
+from dungeon_dragon.packages.classes.cheat_adv import Adv
+from dungeon_dragon.packages.classes.register import Register
+from dungeon_dragon.packages.classes.login import Login
+from dungeon_dragon.packages.classes.ground import Ground
 
 
 # number of player's life
@@ -85,7 +85,7 @@ while True:
                 user_name, user_password, user_avatar = user.Register(confirm_user_password) # noqa E501
                 if user_name is not None:
                     break
-            logging.basicConfig(filename='helper/login_register_total.log', format='%(asctime)s - %(filename)s - %(message)s', level=logging.INFO) # noqa E501
+            logging.basicConfig(filename='painless/helper/login_register_total.log', format='%(asctime)s - %(filename)s - %(message)s', level=logging.INFO) # noqa E501
             logging.info(f'{user_name} Registered')
             break
     elif enter_situation == 'login':
@@ -96,7 +96,7 @@ while True:
             user = Login(user_name, user_password)
             user_name, user_avatar = user.login()
             if user_name is not None:
-                logging.basicConfig(filename='helper/login_register_total.log', format='%(asctime)s - %(filename)s - %(message)s', level=logging.INFO) # noqa E501
+                logging.basicConfig(filename='painless/helper/login_register_total.log', format='%(asctime)s - %(filename)s - %(message)s', level=logging.INFO) # noqa E501
                 logging.info(f'{user_name} Logged in')
                 break
             # else:

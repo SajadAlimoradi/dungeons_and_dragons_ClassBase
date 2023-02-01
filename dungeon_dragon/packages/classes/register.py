@@ -86,7 +86,7 @@ class Register():
         user_name, user_password, user_avatar
         """
         clear_screen()
-        with open('helper/user_data.csv', 'a', newline='') as new_csv_file:
+        with open('painless/helper/user_data.csv', 'a', newline='') as new_csv_file:
             csv_writer = csv.writer(new_csv_file, delimiter=',')
             while True:
                 clear_screen()

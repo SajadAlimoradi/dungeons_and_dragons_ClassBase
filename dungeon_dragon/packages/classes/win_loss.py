@@ -3,18 +3,18 @@ import logging
 from termcolor import colored
 from playsound import playsound
 from pyfiglet import Figlet
-from packages.functions import (
+from dungeon_dragon.packages.functions import (
     find_player
 )
 
-from packages.classes.ground import Ground
+from dungeon_dragon.packages.classes.ground import Ground
 
 LOSING_SIGN: str = '\U0001F4A8'
 DUNGEON_SIGN: str = '\U0001F49A'
 
 
 logger = logging.getLogger(__name__)
-file_h = logging.FileHandler('helper/win_lose.log')
+file_h = logging.FileHandler('painless/helper/win_lose.log')
 file_f = logging.Formatter('%(asctime)s - %(filename)s - %(message)s')
 file_h.setFormatter(file_f)
 file_h.setLevel(logging.INFO)
@@ -75,6 +75,7 @@ class Win_Lose():
             logger.info('player lose')
             x_player, y_player = find_player.find_player(user_avatar, play_ground, level_number) # noqa E501
             play_ground[x_player][y_player] = LOSING_SIGN # noqa E501
+            ground = Ground(user_avatar)
             ground.print_ground(play_ground, life_counter)
             playsound("D:\\Django\\Project_01\\D_and_D_V3.2\\Sounds\\losing.mp3") # noqa E501
             lose_message = Figlet(font='standard')
