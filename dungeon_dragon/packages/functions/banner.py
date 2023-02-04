@@ -1,9 +1,14 @@
 import asyncio
+import os
 from asciimatics.effects import Cycle, Stars
 from asciimatics.renderers import FigletText
+from pathlib import Path
 from asciimatics.scene import Scene
 from asciimatics.screen import Screen
 from playsound import playsound
+
+previous_directory = Path(__file__).resolve().parent.parent.parent
+winning_file_directory = os.path.join(previous_directory, 'sounds', 'winning.mp3')
 
 
 def banner() -> None:
@@ -55,6 +60,6 @@ def banner() -> None:
     # Blocking call interrupted by loop.stop()
     loop.run_forever()
     # playsound("../Sounds/winning.mp3")
-    playsound("D:\\Django\\Project_01\\D_and_D_V5\\dungeon_dragon\\Sounds\\winning.mp3")
+    playsound(winning_file_directory)
     loop.close()
     screen.close()

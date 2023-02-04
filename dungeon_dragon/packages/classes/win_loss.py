@@ -3,15 +3,15 @@ import logging
 from termcolor import colored
 from playsound import playsound
 from pyfiglet import Figlet
+from pathlib import Path
 from dungeon_dragon.packages.functions import (
     find_player
 )
-
 from dungeon_dragon.packages.classes.ground import Ground
 
 LOSING_SIGN: str = '\U0001F4A8'
 DUNGEON_SIGN: str = '\U0001F49A'
-
+previous_directory = Path(__file__).resolve().parent.parent.parent
 
 logger = logging.getLogger(__name__)
 file_h = logging.FileHandler('painless/helper/win_lose.log')
@@ -66,7 +66,7 @@ class Win_Lose():
             logger.info(f'Now life sitution is {new_life_counter}')
             ground = Ground(user_avatar)
             ground.print_ground(play_ground, new_life_counter)
-            playsound("D:\\Django\\Project_01\\D_and_D_V3.2\\Sounds\\losinglife.mp3") # noqa E501
+            playsound(os.path.join(previous_directory, 'sounds', 'losinglife.mp3')) # noqa E501
             lose_message = Figlet(font='standard')
             print(colored(lose_message.renderText('BE CAREFULL !'), 'blue'))
             print("By watching advertisment you can return your lost life ==== adv") # noqa E501
@@ -77,7 +77,7 @@ class Win_Lose():
             play_ground[x_player][y_player] = LOSING_SIGN # noqa E501
             ground = Ground(user_avatar)
             ground.print_ground(play_ground, life_counter)
-            playsound("D:\\Django\\Project_01\\D_and_D_V3.2\\Sounds\\losing.mp3") # noqa E501
+            playsound(os.path.join(previous_directory, 'sounds', 'losing.mp3')) # noqa E501
             lose_message = Figlet(font='standard')
             print(colored(lose_message.renderText('YOU LOSE :('), 'blue'))
             quit()

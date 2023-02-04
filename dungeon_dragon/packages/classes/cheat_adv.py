@@ -1,6 +1,7 @@
 import time
 import os
 import logging
+from pathlib import Path
 from playsound import playsound
 from termcolor import colored
 from pyfiglet import Figlet
@@ -10,6 +11,7 @@ from dungeon_dragon.packages.functions import find_player
 from dungeon_dragon.packages.classes.ground import Ground
 
 
+previous_directory = Path(__file__).resolve().parent.parent.parent
 class sign_of_game (Enum):
     """sign of different roles which play in the game, are saved here."""
     FIRE_SIGN: str = '\U0001F525'
@@ -20,10 +22,10 @@ class sign_of_game (Enum):
 
 class sound_and_imgs_of_game(Enum):
     """path of voice are played, saved here."""
-    comeonman: str = "D:\\Django\\Project_01\\D_and_D_V5\\dungeon_dragon\\Sounds\\comeonman.mp3" # noqa E501
-    cheat_code_1: str = "D:\\Django\\Project_01\\D_and_D_V5\\dungeon_dragon\\Sounds\\cheat_code_1.mp3" # noqa E501
-    sound_adv_1: str = "D:\\Django\\Project_01\\D_and_D_V5\\dungeon_dragon\\Sounds\\adv1.mp3" # noqa E501
-    img_adv_1: str = "D:\\Django\\Project_01\\D_and_D_V5\\dungeon_dragon\\imgs\\adv1.jpg" # noqa E501
+    comeonman: str = os.path.join(previous_directory, 'sounds', 'comeonman.mp3') # noqa E501
+    cheat_code_1: str = os.path.join(previous_directory, 'sounds', 'cheat_code_1.mp3') # noqa E501
+    sound_adv_1: str = os.path.join(previous_directory, 'sounds', 'adv1.mp3') # noqa E501
+    img_adv_1: str = os.path.join(previous_directory, 'imgs', 'adv1.jpg') # noqa E501
 
 
 # logger is defined here

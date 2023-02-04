@@ -152,7 +152,7 @@ while True:
     if cross_player == "adv":
         life_counter: int = adv_code.advertising(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
     # handling player move
-    play_ground = user.move_left(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
+    play_ground = user.move_left(play_ground, cross_player, life_counter, ground) # noqa E501
     play_ground = user.move_right(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
     play_ground = user.move_up(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
     play_ground = user.move_down(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
