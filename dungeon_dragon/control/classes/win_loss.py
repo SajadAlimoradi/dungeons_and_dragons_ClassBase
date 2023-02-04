@@ -4,10 +4,10 @@ from termcolor import colored
 from playsound import playsound
 from pyfiglet import Figlet
 from pathlib import Path
-from dungeon_dragon.packages.functions import (
+from dungeon_dragon.control.functions import (
     find_player
 )
-from dungeon_dragon.packages.classes.ground import Ground
+from dungeon_dragon.view.ground import Ground
 
 LOSING_SIGN: str = '\U0001F4A8'
 DUNGEON_SIGN: str = '\U0001F49A'

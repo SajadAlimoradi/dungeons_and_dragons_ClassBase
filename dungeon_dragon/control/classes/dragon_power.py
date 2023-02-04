@@ -1,9 +1,9 @@
-from dungeon_dragon.packages.functions import (
+from dungeon_dragon.control.functions import (
     find_player,
     dragon_move,
 )
 import logging
-from dungeon_dragon.packages.classes.win_loss import Win_Lose
+from dungeon_dragon.control.classes.win_loss import Win_Lose
 DRAGON_SIGN: str = '\U0001F432'
 
 logger = logging.getLogger(__name__)

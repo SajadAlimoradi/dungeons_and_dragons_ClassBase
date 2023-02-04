@@ -1,10 +1,10 @@
 import logging
-from dungeon_dragon.packages.functions import (
+from dungeon_dragon.control.functions import (
     find_player,
     type_check
 )
 
-from dungeon_dragon.packages.classes.ground import Ground
+from dungeon_dragon.view.ground import Ground
 
 DRAGON_SIGN: str = '\U0001F432'
 DUNGEON_SIGN: str = '\U0001F49A'
@@ -237,6 +237,7 @@ class Player(Character):
                     South : down
                     East : left
                     West : right
+                    
                     ''')
             x_dungeon, y_dungeon = find_player.find_player(DUNGEON_SIGN, play_ground, self.level_number) # noqa E501
             x_player, y_player = find_player.find_player(self.user_avatar, play_ground, self.level_number) # noqa E501

@@ -7,11 +7,12 @@ from termcolor import colored
 from pyfiglet import Figlet
 from enum import Enum
 from PIL import Image
-from dungeon_dragon.packages.functions import find_player
-from dungeon_dragon.packages.classes.ground import Ground
-
+from dungeon_dragon.control.functions import find_player
+from dungeon_dragon.view.ground import Ground
 
 previous_directory = Path(__file__).resolve().parent.parent.parent
+
+
 class sign_of_game (Enum):
     """sign of different roles which play in the game, are saved here."""
     FIRE_SIGN: str = '\U0001F525'

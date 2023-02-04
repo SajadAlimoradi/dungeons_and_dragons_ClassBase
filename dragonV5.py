@@ -4,22 +4,21 @@ import logging
 from enum import Enum
 from pyfiglet import Figlet
 from termcolor import colored
-from dungeon_dragon.packages.functions import (
+from dungeon_dragon.control.functions import (
     banner,
     user_player_sign
 )
 
 # from Packages.Classes.define_player_position import PlayerPosition
-from dungeon_dragon.packages.classes.player_move import Character
-from dungeon_dragon.packages.classes.player_move import Player
-from dungeon_dragon.packages.classes.dragon_power import Dragon
-from dungeon_dragon.packages.classes.win_loss import Win_Lose
-from dungeon_dragon.packages.classes.cheat_adv import Cheat
-from dungeon_dragon.packages.classes.cheat_adv import Adv
-from dungeon_dragon.packages.classes.register import Register
-from dungeon_dragon.packages.classes.login import Login
-from dungeon_dragon.packages.classes.ground import Ground
-
+from dungeon_dragon.control.classes.player_move import Character # noqa E501
+from dungeon_dragon.control.classes.player_move import Player # noqa E501
+from dungeon_dragon.control.classes.dragon_power import Dragon # noqa E501
+from dungeon_dragon.control.classes.win_loss import Win_Lose # noqa E501
+from dungeon_dragon.control.classes.cheat_adv import Cheat # noqa E501
+from dungeon_dragon.control.classes.cheat_adv import Adv # noqa E501
+from dungeon_dragon.control.classes.register import Register # noqa E501
+from dungeon_dragon.control.classes.login import Login # noqa E501
+from dungeon_dragon.view.ground import Ground # noqa E501
 
 # number of player's life
 life_counter: int = 3
