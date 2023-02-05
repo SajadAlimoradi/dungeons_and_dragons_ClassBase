@@ -1,6 +1,8 @@
 import csv
 import os
 import time
+from database import db
+from dungeon_dragon.model import User
 
 
 # cleaning
@@ -50,19 +52,18 @@ class Login():
         """
         clear_screen()
         while True:
-            with open('painless/helper/user_data.csv', 'r', newline='') as csv_file:
-                csv_reader = csv.reader(csv_file, delimiter=',')
-                user_name = self.user_name
-                user_password = self.user_password
-                clear_screen()
-                for line in csv_reader:
-                    if user_name == line[0] and user_password == line[1]:
-                        user_avatar = line[2]
-                        print("You Logged in Succsesfully")
-                        time.sleep(1)
-                        clear_screen()
-                        return user_name, user_avatar
-                        break
-                else:
-                    print("Please enter correct data")
-                    return None, None
+            user_name = self.__user_name
+            user_password = self.user_password
+            clear_screen()
+            user = User.adapt(user_name)
+            for line in user:
+                if user_name == line[0] and user_password == line[1]:
+                    user_avatar = line[2]
+                    print("You Logged in Succsesfully")
+                    time.sleep(1)
+                    clear_screen()
+                    return user_name, user_avatar
+                    break
+            else:
+                print("Please enter correct data")
+                return None, None

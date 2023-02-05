@@ -58,7 +58,7 @@ for example: login/register/level/establishing roles of game, etc
 '''
 
 # Banner is running then user's register or login will be run
-banner.banner()
+# banner.banner()
 while True:
     clear_screen()
     start_message = Figlet(font='standard', width=110)
@@ -81,8 +81,8 @@ while True:
             user = Register(user_name, user_password, user_avatar)
             while True:
                 confirm_user_password = input("Confirm Password : ")
-                user_name, user_password, user_avatar = user.Register(confirm_user_password) # noqa E501
-                if user_name is not None:
+                register_auth = user.Register(confirm_user_password) # noqa E501
+                if register_auth is True:
                     break
             logging.basicConfig(filename='painless/helper/login_register_total.log', format='%(asctime)s - %(filename)s - %(message)s', level=logging.INFO) # noqa E501
             logging.info(f'{user_name} Registered')

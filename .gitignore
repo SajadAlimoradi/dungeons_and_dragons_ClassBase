@@ -81,7 +81,7 @@ target/
 local_settings.py
 collectstatic/
 settings.ini
-**/migrations/*
+# **/migrations/*
 !**/migrations/__init__.py
 media/upload/**
 !media/upload/*

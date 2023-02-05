@@ -1,6 +1,8 @@
-import csv
+# import csv
 import os
 import time
+from database import db
+from dungeon_dragon.model import User
 
 
 # cleaning
@@ -85,21 +87,26 @@ class Register():
         -------
         user_name, user_password, user_avatar
         """
+
         clear_screen()
-        with open('painless/helper/user_data.csv', 'a', newline='') as new_csv_file:
-            csv_writer = csv.writer(new_csv_file, delimiter=',')
-            while True:
+        while True:
+            clear_screen()
+            if self.__user_password == confirm_user_password:
+                print("You Registered Succsesfully")
+                time.sleep(1)
                 clear_screen()
-                if self.__user_password == confirm_user_password:
-                    csv_writer.writerow([self.__user_name, self.__user_password, self.user_avatar]) # noqa E501
-                    print("You Registered Succsesfully")
-                    time.sleep(1)
-                    clear_screen()
-                    return self.__user_name, self.__user_password, self.user_avatar # noqa E501
-                    break
-                else:
-                    print("Please enter correct")
-                    time.sleep(1)
-                    clear_screen()
-                    return None, None, None
-                    break
+                db.engine.connect()
+                user = User.create(
+                    username=self.__user_name,
+                    password=self.__user_password,
+                    avatar=self.user_avatar
+                )
+                return True
+                # return self.__user_name, self.__user_password, self.user_avatar # noqa E501
+                break
+            else:
+                print("Please enter correct")
+                time.sleep(1)
+                clear_screen()
+                return None, None, None
+                break
