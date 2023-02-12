@@ -8,7 +8,7 @@ from asciimatics.screen import Screen
 from playsound import playsound
 
 previous_directory = Path(__file__).resolve().parent.parent.parent
-winning_file_directory = os.path.join(previous_directory, 'sounds', 'winning.mp3')
+winning_file_directory = os.path.join(previous_directory, 'sounds', 'winning.mp3') # noqa E501
 
 
 def banner() -> None:

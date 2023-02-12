@@ -2,6 +2,7 @@ import time
 import os
 from pyfiglet import Figlet
 from termcolor import colored
+from painless.design.singleton import Singleton
 
 LIFE_SIGN: str = '\U0001F9E1'
 
@@ -18,7 +19,7 @@ def clear_screen() -> int:
     return os.system('cls')
 
 
-class Ground():
+class Ground(metaclass=Singleton):
     """
     this class handle the ground by the level which player choose it,
     for example; make the ground, load it

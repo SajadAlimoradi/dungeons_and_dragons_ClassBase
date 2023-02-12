@@ -1,6 +1,8 @@
 import os
 import random
 import logging
+from threading import Thread
+from playsound import playsound
 from enum import Enum
 from pyfiglet import Figlet
 from termcolor import colored
@@ -45,6 +47,12 @@ class player (Enum):
 def clear_screen() -> int:
     """this function clean screen from previous code which ran"""
     return os.system('cls')
+
+
+def play():
+    """this function run background music"""
+    while True:
+        playsound("D:\\Django\\Project_01\\D_and_D_V3.2\\Sounds\\game.mp3")
 
 
 '''
@@ -141,7 +149,8 @@ of starting game, is ready.
 Now game is going to start.
 ==============================================================================
 '''
-
+background_music = Thread(target=play)
+# background_music.start()
 
 while True:
     attack_probability: float = random.random()
@@ -151,10 +160,10 @@ while True:
     if cross_player == "adv":
         life_counter: int = adv_code.advertising(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
     # handling player move
-    play_ground = user.move_left(play_ground, cross_player, life_counter, ground) # noqa E501
-    play_ground = user.move_right(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
-    play_ground = user.move_up(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
-    play_ground = user.move_down(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
+    user.move_left(play_ground, cross_player, life_counter, ground) # noqa E501
+    user.move_right(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
+    user.move_up(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
+    user.move_down(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
     user.move_check(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
     user.move_help(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
     # handling Dragon move

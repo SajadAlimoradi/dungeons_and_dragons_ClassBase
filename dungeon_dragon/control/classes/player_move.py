@@ -89,7 +89,6 @@ class Player(Character):
                 play_ground[row][col] = '()' # noqa E501
                 play_ground[x_position][y_position] = self.user_avatar # noqa E501
                 ground.print_ground(play_ground, life_counter)
-        return play_ground
 
 
     def move_right(self, play_ground: list, cross_player: str, life_counter: int,  ground: Ground) -> list: # noqa E501
@@ -121,7 +120,6 @@ class Player(Character):
                 play_ground[row][col] = '()' # noqa E501
                 play_ground[x_position][y_position] = self.user_avatar # noqa E501
                 ground.print_ground(play_ground, life_counter)
-        return play_ground
 
 
     def move_down(self, play_ground: list, cross_player: str, life_counter: int,  ground: Ground) -> list: # noqa E501
@@ -153,7 +151,6 @@ class Player(Character):
                 play_ground[row][col] = '()' # noqa E501
                 play_ground[x_position][y_position] = self.user_avatar # noqa E501
                 ground.print_ground(play_ground, life_counter)
-        return play_ground
 
 
     def move_up(self, play_ground: list, cross_player: str, life_counter: int,  ground: Ground) -> list: # noqa E501
@@ -185,7 +182,6 @@ class Player(Character):
                 play_ground[row][col] = '()' # noqa E501
                 play_ground[x_position][y_position] = self.user_avatar # noqa E501
                 ground.print_ground(play_ground, life_counter)
-        return play_ground
 
 
     def move_check(self, play_ground: list, cross_player: str, life_counter: int,  ground: Ground) -> None: # noqa E501
@@ -237,7 +233,7 @@ class Player(Character):
                     South : down
                     East : left
                     West : right
-                    
+
                     ''')
             x_dungeon, y_dungeon = find_player.find_player(DUNGEON_SIGN, play_ground, self.level_number) # noqa E501
             x_player, y_player = find_player.find_player(self.user_avatar, play_ground, self.level_number) # noqa E501
