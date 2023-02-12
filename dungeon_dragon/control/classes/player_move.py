@@ -233,6 +233,9 @@ class Player(Character):
                     South : down
                     East : left
                     West : right
+                    bombd : throw bomb to down
+                    bombu : throw bomb to up
+                    fire : explode bomb one by one
 
                     ''')
             x_dungeon, y_dungeon = find_player.find_player(DUNGEON_SIGN, play_ground, self.level_number) # noqa E501
