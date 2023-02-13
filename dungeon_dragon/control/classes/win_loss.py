@@ -8,6 +8,7 @@ from dungeon_dragon.control.functions import (
     find_player
 )
 from dungeon_dragon.view.ground import Ground
+from painless.utils.funcs import stop_thread
 
 LOSING_SIGN: str = '\U0001F4A8'
 DUNGEON_SIGN: str = '\U0001F49A'
@@ -80,6 +81,7 @@ class Win_Lose():
             playsound(os.path.join(previous_directory, 'sounds', 'losing.mp3')) # noqa E501
             lose_message = Figlet(font='standard')
             print(colored(lose_message.renderText('YOU LOSE :('), 'blue'))
+            stop_thread.is_set()
             quit()
 
     # define winning
@@ -116,4 +118,5 @@ class Win_Lose():
             playsound("D:\\Django\\Project_01\\D_and_D_V3.2\\Sounds\\winning.mp3") # noqa E501
             win_message = Figlet(font='standard')
             print(colored(win_message.renderText('YOU WIN :)'), 'blue'))
+            stop_thread.is_set()
             quit()

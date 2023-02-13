@@ -1,8 +1,6 @@
 import os
 import random
 import logging
-from threading import Thread
-from playsound import playsound
 from enum import Enum
 from pyfiglet import Figlet
 from termcolor import colored
@@ -21,6 +19,8 @@ from dungeon_dragon.control.classes.cheat_adv import Adv # noqa E501
 from dungeon_dragon.control.classes.register import Register # noqa E501
 from dungeon_dragon.control.classes.login import Login # noqa E501
 from dungeon_dragon.view.ground import Ground # noqa E501
+from painless.utils.funcs import background_music
+
 
 # number of player's life
 life_counter: int = 3
@@ -28,7 +28,7 @@ life_counter: int = 3
 
 # define player emoji
 class sign_of_game(Enum):
-    """ """
+    """ sign of different roles is defined here"""
     LOSING_SIGN: str = '\U0001F4A8'
     DUNGEON_SIGN: str = '\U0001F49A'
     DRAGON_SIGN: str = '\U0001F432'
@@ -49,12 +49,6 @@ def clear_screen() -> int:
     return os.system('cls')
 
 
-def play():
-    """this function run background music"""
-    while True:
-        playsound("D:\\Django\\Project_01\\D_and_D_V3.2\\Sounds\\game.mp3")
-
-
 '''
 ==============================================================================
 GAME IS STARTING HERE!
@@ -66,7 +60,7 @@ for example: login/register/level/establishing roles of game, etc
 '''
 
 # Banner is running then user's register or login will be run
-banner.banner()
+# banner.banner()
 while True:
     clear_screen()
     start_message = Figlet(font='standard', width=110)
@@ -149,8 +143,8 @@ of starting game, is ready.
 Now game is going to start.
 ==============================================================================
 '''
-background_music = Thread(target=play)
-# background_music.start()
+#background music is start from here.
+background_music.start()
 
 while True:
     attack_probability: float = random.random()

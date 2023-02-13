@@ -9,6 +9,7 @@ from enum import Enum
 from PIL import Image
 from dungeon_dragon.control.functions import find_player
 from dungeon_dragon.view.ground import Ground
+from painless.utils.funcs import stop_thread, background_music
 
 previous_directory = Path(__file__).resolve().parent.parent.parent
 
@@ -95,6 +96,7 @@ class Cheat():
             playsound(sound_and_imgs_of_game.cheat_code_1.value) # noqa E501
             win_message = Figlet(font='standard')
             print(colored(win_message.renderText('YOU WIN'), 'blue'))
+            stop_thread.is_set()
             quit()
 
     def cheat_code_bombd(self, play_ground: list, cross_player: str, life_counter: int,  ground: Ground) -> None: # noqa E501
@@ -201,6 +203,8 @@ class Cheat():
                     play_ground[x_dragon][y_dragon] = sign_of_game.LOSING_SIGN.value # noqa E501
                     clear_screen()
                     ground.print_ground(play_ground, life_counter)
+                    stop_thread.is_set()
+                    background_music.join()
                     playsound(sound_and_imgs_of_game.cheat_code_1.value) # noqa E501
                     win_message = Figlet(font='standard')
                     print(colored(win_message.renderText('GREAT Dragon killed! YOU WIN'), 'blue')) # noqa E501
