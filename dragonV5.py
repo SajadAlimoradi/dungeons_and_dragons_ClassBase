@@ -60,7 +60,7 @@ for example: login/register/level/establishing roles of game, etc
 '''
 
 # Banner is running then user's register or login will be run
-# banner.banner()
+banner.banner()
 while True:
     clear_screen()
     start_message = Figlet(font='standard', width=110)
@@ -143,7 +143,7 @@ of starting game, is ready.
 Now game is going to start.
 ==============================================================================
 '''
-#background music is start from here.
+# background music is start from here.
 background_music.start()
 
 while True:
