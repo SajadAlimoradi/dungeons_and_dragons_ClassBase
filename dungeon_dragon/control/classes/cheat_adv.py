@@ -2,33 +2,17 @@ import time
 import os
 import logging
 import configparser
-from pathlib import Path
 from playsound import playsound
 from termcolor import colored
 from pyfiglet import Figlet
-from enum import Enum
 from PIL import Image
 from dungeon_dragon.control.functions import find_player
 from dungeon_dragon.view.ground import Ground
-from painless.utils.funcs import stop_thread, background_music
-
-previous_directory = Path(__file__).resolve().parent.parent.parent
-
-
-class sign_of_game (Enum):
-    """sign of different roles which play in the game, are saved here."""
-    FIRE_SIGN: str = '\U0001F525'
-    BOMB_SIGN: str = '\U0001F4A3'
-    DRAGON_SIGN: str = '\U0001F432'
-    LOSING_SIGN: str = '\U0001F4A8'
-
-
-class sound_and_imgs_of_game(Enum):
-    """path of voice are played, saved here."""
-    comeonman: str = os.path.join(previous_directory, 'sounds', 'comeonman.mp3') # noqa E501
-    cheat_code_1: str = os.path.join(previous_directory, 'sounds', 'cheat_code_1.mp3') # noqa E501
-    sound_adv_1: str = os.path.join(previous_directory, 'sounds', 'adv1.mp3') # noqa E501
-    img_adv_1: str = os.path.join(previous_directory, 'imgs', 'adv1.jpg') # noqa E501
+from painless.utils.second_thread import stop_thread, background_music
+from painless.helper.enum import (
+    sign_of_game,
+    sound_and_imgs_of_game
+)
 
 
 # logging file is config and handle here

@@ -2,11 +2,10 @@ from dungeon_dragon.control.functions import (
     find_player,
     dragon_move,
 )
-
 import logging
 import configparser
 from dungeon_dragon.control.classes.win_loss import Win_Lose
-DRAGON_SIGN: str = '\U0001F432'
+from painless.helper.enum import sign_of_game
 
 # logging file is config and handle here
 config = configparser.ConfigParser()
@@ -81,7 +80,7 @@ class Dragon(Character):
 
         """
         row, col = find_player.find_player(self.user_avatar, play_ground, self.level_number) # noqa E501
-        x_dragon, y_dragon = find_player.find_player(DRAGON_SIGN, play_ground, self.level_number) # noqa E501
+        x_dragon, y_dragon = find_player.find_player(sign_of_game.DRAGON_SIGN.value, play_ground, self.level_number) # noqa E501
         if attack_probability < 0.3:
             if (abs(row - x_dragon) == 0) and (abs(col - y_dragon) > 2 and (abs(col - y_dragon) <= 5)): # noqa E501
                 logger.info('Dragon Attack by Smelling Power')
@@ -113,7 +112,7 @@ class Dragon(Character):
 
         """
         row, col = find_player.find_player(self.user_avatar, play_ground, self.level_number) # noqa E501
-        x_dragon, y_dragon = find_player.find_player(DRAGON_SIGN, play_ground, self.level_number) # noqa E501
+        x_dragon, y_dragon = find_player.find_player(sign_of_game.DRAGON_SIGN.value, play_ground, self.level_number) # noqa E501
         if attack_probability < 0.9:
             if (abs(row - x_dragon) == 0) and (abs(col - y_dragon) <= 2):
                 logger.info('Dragon Attack by Hearing Power')

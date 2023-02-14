@@ -1,7 +1,6 @@
 import os
 import random
 import logging
-from enum import Enum
 from pyfiglet import Figlet
 from termcolor import colored
 from dungeon_dragon.control.functions import (
@@ -19,28 +18,15 @@ from dungeon_dragon.control.classes.cheat_adv import Adv # noqa E501
 from dungeon_dragon.control.classes.register import Register # noqa E501
 from dungeon_dragon.control.classes.login import Login # noqa E501
 from dungeon_dragon.view.ground import Ground # noqa E501
-from painless.utils.funcs import background_music
+from painless.utils.second_thread import background_music
+from painless.helper.enum import (
+    player,
+    sign_of_game
+)
 
 
 # number of player's life
 life_counter: int = 3
-
-
-# define player emoji
-class sign_of_game(Enum):
-    """ sign of different roles is defined here"""
-    LOSING_SIGN: str = '\U0001F4A8'
-    DUNGEON_SIGN: str = '\U0001F49A'
-    DRAGON_SIGN: str = '\U0001F432'
-    LIFE_SIGN: str = '\U0001F9E1'
-    BOMB: str = '\U0001F4A3'
-
-
-class player (Enum):
-    """avatar which user can choose them are saved here."""
-    one = '\U0001F47D'
-    two = '\U0001F916'
-    three = '\U0001F921'
 
 
 # cleaning
@@ -60,7 +46,7 @@ for example: login/register/level/establishing roles of game, etc
 '''
 
 # Banner is running then user's register or login will be run
-banner.banner()
+# banner.banner()
 while True:
     clear_screen()
     start_message = Figlet(font='standard', width=110)

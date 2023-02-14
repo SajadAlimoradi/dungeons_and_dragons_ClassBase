@@ -1,20 +1,20 @@
 import os
 import logging
+import configparser
 from termcolor import colored
 from playsound import playsound
 from pyfiglet import Figlet
-from pathlib import Path
 from dungeon_dragon.control.functions import (
     find_player
 )
 from dungeon_dragon.view.ground import Ground
-from painless.utils.funcs import stop_thread
+from painless.utils.second_thread import stop_thread
 
-import configparser
+from painless.helper.enum import (
+    sound_and_imgs_of_game,
+    sign_of_game
+)
 
-LOSING_SIGN: str = '\U0001F4A8'
-DUNGEON_SIGN: str = '\U0001F49A'
-previous_directory = Path(__file__).resolve().parent.parent.parent
 
 # logging file is config and handle here
 config = configparser.ConfigParser()
@@ -72,7 +72,7 @@ class Win_Lose():
             logger.info(f'Now life sitution is {new_life_counter}')
             ground = Ground(user_avatar)
             ground.print_ground(play_ground, new_life_counter)
-            playsound(os.path.join(previous_directory, 'sounds', 'losinglife.mp3')) # noqa E501
+            playsound(sound_and_imgs_of_game.losing_life.value) # noqa E501
             lose_message = Figlet(font='standard')
             print(colored(lose_message.renderText('BE CAREFULL !'), 'blue'))
             print("By watching advertisment you can return your lost life ==== adv") # noqa E501
@@ -83,7 +83,7 @@ class Win_Lose():
             play_ground[x_player][y_player] = LOSING_SIGN # noqa E501
             ground = Ground(user_avatar)
             ground.print_ground(play_ground, life_counter)
-            playsound(os.path.join(previous_directory, 'sounds', 'losing.mp3')) # noqa E501
+            playsound(sound_and_imgs_of_game.losing.value) # noqa E501
             lose_message = Figlet(font='standard')
             print(colored(lose_message.renderText('YOU LOSE :('), 'blue'))
             stop_thread.is_set()
@@ -113,14 +113,14 @@ class Win_Lose():
         None
 
         """
-        x_dungeon, y_dungeon = find_player.find_player(DUNGEON_SIGN, play_ground, level_number) # noqa E501
+        x_dungeon, y_dungeon = find_player.find_player(sign_of_game.DUNGEON_SIGN.value, play_ground, level_number) # noqa E501
         x_player, y_player = find_player.find_player(user_avatar, play_ground, level_number) # noqa E501
         if (abs(x_player - x_dungeon) == 1 and abs(y_player - y_dungeon) == 0) or (abs(x_player - x_dungeon) == 0 and abs(y_player - y_dungeon) == 1): # noqa E501
             logger.info('player win')
             clear_screen()
             ground = Ground(user_avatar)
             ground.print_ground(play_ground, life_counter)
-            playsound("D:\\Django\\Project_01\\D_and_D_V3.2\\Sounds\\winning.mp3") # noqa E501
+            playsound(sound_and_imgs_of_game.winning.value) # noqa E501
             win_message = Figlet(font='standard')
             print(colored(win_message.renderText('YOU WIN :)'), 'blue'))
             stop_thread.is_set()

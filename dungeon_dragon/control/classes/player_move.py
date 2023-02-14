@@ -6,9 +6,7 @@ from dungeon_dragon.control.functions import (
 )
 
 from dungeon_dragon.view.ground import Ground
-
-DRAGON_SIGN: str = '\U0001F432'
-DUNGEON_SIGN: str = '\U0001F49A'
+from painless.helper.enum import sign_of_game
 
 # logging file is config and handle here
 config = configparser.ConfigParser()
@@ -83,7 +81,7 @@ class Player(Character):
         """
         if cross_player == 'left':
             row, col = find_player.find_player(self.user_avatar, play_ground, self.level_number) # noqa E501
-            x_dragon, y_dragon = find_player.find_player(DRAGON_SIGN, play_ground, self.level_number) # noqa E501
+            x_dragon, y_dragon = find_player.find_player(sign_of_game.DRAGON_SIGN.value, play_ground, self.level_number) # noqa E501
             x_position: int = row
             y_position: int = col - 1
             logger.info(f'{self.user_name} press {cross_player} and now its location is {x_position},{y_position}') # noqa E501
@@ -114,7 +112,7 @@ class Player(Character):
         """
         if cross_player == 'right':
             row, col = find_player.find_player(self.user_avatar, play_ground, self.level_number) # noqa E501
-            x_dragon, y_dragon = find_player.find_player(DRAGON_SIGN, play_ground, self.level_number) # noqa E501
+            x_dragon, y_dragon = find_player.find_player(sign_of_game.DRAGON_SIGN.value, play_ground, self.level_number) # noqa E501
             x_position: int = row
             y_position: int = col + 1
             logger.info(f'{self.user_name} press {cross_player} and now its location is {x_position},{y_position}') # noqa E501
@@ -145,7 +143,7 @@ class Player(Character):
         """
         if cross_player == 'down':
             row, col = find_player.find_player(self.user_avatar, play_ground, self.level_number) # noqa E501
-            x_dragon, y_dragon = find_player.find_player(DRAGON_SIGN, play_ground, self.level_number) # noqa E501
+            x_dragon, y_dragon = find_player.find_player(sign_of_game.DRAGON_SIGN.value, play_ground, self.level_number) # noqa E501
             x_position: int = row + 1
             y_position: int = col
             logger.info(f'{self.user_name} press {cross_player} and now its location is {x_position},{y_position}') # noqa E501
@@ -176,7 +174,7 @@ class Player(Character):
         """
         if cross_player == 'up':
             row, col = find_player.find_player(self.user_avatar, play_ground, self.level_number) # noqa E501
-            x_dragon, y_dragon = find_player.find_player(DRAGON_SIGN, play_ground, self.level_number) # noqa E501
+            x_dragon, y_dragon = find_player.find_player(sign_of_game.DRAGON_SIGN.value, play_ground, self.level_number) # noqa E501
             x_position: int = row - 1
             y_position: int = col
             logger.info(f'{self.user_name} press {cross_player} and now its location is {x_position},{y_position}') # noqa E501
@@ -242,7 +240,7 @@ class Player(Character):
                     fire : explode bomb one by one
 
                     ''')
-            x_dungeon, y_dungeon = find_player.find_player(DUNGEON_SIGN, play_ground, self.level_number) # noqa E501
+            x_dungeon, y_dungeon = find_player.find_player(sign_of_game.DUNGEON_SIGN.value, play_ground, self.level_number) # noqa E501
             x_player, y_player = find_player.find_player(self.user_avatar, play_ground, self.level_number) # noqa E501
             print(f'You can find dungeon {  abs(x_dungeon - x_player)} home upper or downer from player') # noqa E501
             print(f'You can find dungeon { abs(y_dungeon - y_player)} home lefter or righter from player') # noqa E501

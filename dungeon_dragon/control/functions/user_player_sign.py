@@ -1,13 +1,5 @@
-from enum import Enum
-
-
-class player (Enum):
-    """
-    sign of avatar saved here.
-    """
-    one: str = '\U0001F47D'
-    two: str = '\U0001F916'
-    three: str = '\U0001F921'
+# from enum import Enum
+from painless.helper.enum import player
 
 
 def user_player(user_avatar: str):
