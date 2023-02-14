@@ -2,13 +2,18 @@ from dungeon_dragon.control.functions import (
     find_player,
     dragon_move,
 )
+
 import logging
+import configparser
 from dungeon_dragon.control.classes.win_loss import Win_Lose
 DRAGON_SIGN: str = '\U0001F432'
 
+# logging file is config and handle here
+config = configparser.ConfigParser()
+config.read('config\\logging.toml')
 logger = logging.getLogger(__name__)
-file_h = logging.FileHandler('painless/helper/dragon_power.log')
-file_f = logging.Formatter('%(asctime)s - %(filename)s - %(message)s')
+file_h = logging.FileHandler(config['cheat_adv']['file_handler'])
+file_f = logging.Formatter(config['cheat_adv']['file_formatter'])
 file_h.setFormatter(file_f)
 file_h.setLevel(logging.INFO)
 logger.addHandler(file_h)

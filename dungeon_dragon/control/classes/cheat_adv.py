@@ -1,6 +1,7 @@
 import time
 import os
 import logging
+import configparser
 from pathlib import Path
 from playsound import playsound
 from termcolor import colored
@@ -30,10 +31,12 @@ class sound_and_imgs_of_game(Enum):
     img_adv_1: str = os.path.join(previous_directory, 'imgs', 'adv1.jpg') # noqa E501
 
 
-# logger is defined here
+# logging file is config and handle here
+config = configparser.ConfigParser()
+config.read('config\\logging.toml')
 logger = logging.getLogger(__name__)
-file_h = logging.FileHandler('painless/helper/cheat_adv.log')
-file_f = logging.Formatter('%(asctime)s - %(filename)s - %(message)s')
+file_h = logging.FileHandler(config['cheat_adv']['file_handler'])
+file_f = logging.Formatter(config['cheat_adv']['file_formatter'])
 file_h.setFormatter(file_f)
 file_h.setLevel(logging.INFO)
 logger.addHandler(file_h)

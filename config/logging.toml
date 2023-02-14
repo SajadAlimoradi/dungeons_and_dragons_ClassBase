@@ -1,0 +1,15 @@
+[player]
+file_handler = painless/helper/Player_move.log
+file_formatter = %%(asctime)s %%(filename)s %%(message)s
+
+[cheat_adv]
+file_handler = painless/helper/cheat_adv.log
+file_formatter = %%(asctime)s - %%(filename)s - %%(message)s
+
+[dragon_power]
+file_handler = painless/helper/dragon_power.log
+file_formatter = %%(asctime)s - %%(filename)s - %%(message)s
+
+[win_lose]
+file_handler = painless/helper/win_lose.log
+file_formatter = %%(asctime)s - %%(filename)s - %%(message)s

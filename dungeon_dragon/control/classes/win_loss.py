@@ -10,13 +10,18 @@ from dungeon_dragon.control.functions import (
 from dungeon_dragon.view.ground import Ground
 from painless.utils.funcs import stop_thread
 
+import configparser
+
 LOSING_SIGN: str = '\U0001F4A8'
 DUNGEON_SIGN: str = '\U0001F49A'
 previous_directory = Path(__file__).resolve().parent.parent.parent
 
+# logging file is config and handle here
+config = configparser.ConfigParser()
+config.read('config\\logging.toml')
 logger = logging.getLogger(__name__)
-file_h = logging.FileHandler('painless/helper/win_lose.log')
-file_f = logging.Formatter('%(asctime)s - %(filename)s - %(message)s')
+file_h = logging.FileHandler(config['win_lose']['file_handler'])
+file_f = logging.Formatter(config['win_lose']['file_formatter'])
 file_h.setFormatter(file_f)
 file_h.setLevel(logging.INFO)
 logger.addHandler(file_h)

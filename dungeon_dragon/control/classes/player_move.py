@@ -1,4 +1,5 @@
 import logging
+import configparser
 from dungeon_dragon.control.functions import (
     find_player,
     type_check
@@ -9,9 +10,12 @@ from dungeon_dragon.view.ground import Ground
 DRAGON_SIGN: str = '\U0001F432'
 DUNGEON_SIGN: str = '\U0001F49A'
 
+# logging file is config and handle here
+config = configparser.ConfigParser()
+config.read('config\\logging.toml')
 logger = logging.getLogger(__name__)
-file_h = logging.FileHandler('painless/helper/Player_move.log')
-file_f = logging.Formatter('%(asctime)s - %(filename)s - %(message)s')
+file_h = logging.FileHandler(config['player']['file_handler'])
+file_f = logging.Formatter(config['player']['file_formatter'])
 file_h.setFormatter(file_f)
 file_h.setLevel(logging.INFO)
 logger.addHandler(file_h)
