@@ -24,7 +24,7 @@ from painless.helper.enum import (
     sign_of_game
 )
 
-
+from dungeon_dragon.view.login_registeration_view import login_register_view
 # number of player's life
 life_counter: int = 3
 
@@ -46,52 +46,8 @@ for example: login/register/level/establishing roles of game, etc
 '''
 
 # Banner is running then user's register or login will be run
-# banner.banner()
-while True:
-    clear_screen()
-    start_message = Figlet(font='standard', width=110)
-    print(colored(start_message.renderText('Welcome to D & D v.5 '), 'green'))
-    enter_situation: str = input("\nPlease choose : Login / Register\n").casefold() # noqa E501
-    clear_screen()
-    if enter_situation == 'register':
-        print(colored(start_message.renderText('Register'), 'red'))
-        while True:
-            while True:
-                print(f'one : {player.one.value}  two : {player.two.value}  three: {player.three.value}') # noqa E501
-                user_avatar: str = input("Please choose your avatar : one / two / three\n") # noqa E501
-                if user_avatar not in ['one', 'two', 'three']:
-                    clear_screen()
-                    print("Please enter correct number")
-                else:
-                    break
-            user_name: str = input("UserName : ")
-            user_password: str = input("Password : ")
-            user = Register(user_name, user_password, user_avatar)
-            while True:
-                confirm_user_password = input("Confirm Password : ")
-                register_auth = user.Register(confirm_user_password) # noqa E501
-                if register_auth is True:
-                    break
-            logging.basicConfig(filename='painless/helper/login_register_total.log', format='%(asctime)s - %(filename)s - %(message)s', level=logging.INFO) # noqa E501
-            logging.info(f'{user_name} Registered')
-            break
-    elif enter_situation == 'login':
-        print(colored(start_message.renderText('Login'), 'red'))
-        while True:
-            user_name: str = input("UserName : ")
-            user_password: str = input("Password : ")
-            user = Login(user_name, user_password)
-            user_name, user_avatar = user.login()
-            if user_name is not None:
-                logging.basicConfig(filename='painless/helper/login_register_total.log', format='%(asctime)s - %(filename)s - %(message)s', level=logging.INFO) # noqa E501
-                logging.info(f'{user_name} Logged in')
-                break
-            # else:
-            #     pass
-        break
-    else:
-        print("Please choose between these options")
-
+banner.banner()
+user_name, user_avatar = login_register_view()
 
 # user choose the level of the game
 user_level = input('Which level do you want to play? Easy - Medium - Hard\n\n').lower() # noqa E501
@@ -156,4 +112,4 @@ while True:
     cheat_code.cheat_code_bombu(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
     cheat_code.cheat_code_bombd(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
     cheat_code.cheat_code_fire(play_ground, cross_player, life_counter, ground= Ground(user_avatar)) # noqa E501
-    # print(attack_probability)
+    
